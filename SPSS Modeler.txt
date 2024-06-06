@@ -1,0 +1,22 @@
+SPSS Modeler
+
+*diskretizacija: Field Ops --> Binning
+
+*standardizacija: Field Ops --> Filler	(x - mean)/sdev <=> (@FIELD - @GLOBAL_MEAN(@FIELD))/@GLOBAL_SDEV(@FIELD)
+									|
+									|  definisanje glob. promenljivih
+									| (povezan na pocetni skup podataka)
+									|
+									V
+								Output -> Set Globals
+
+*promena vrednosti atributa: Field Ops --> Reclassify
+
+*stabla odlucivanja: Modeling --(Supervised)--> C5.0
+
+	-podela skupa na trening i test: Field Ops -> Partition
+	
+	-No Targets = zbog klasifikacije u ucitanom fajlu treba da postavimo ciljnu promenljivu Role:Target
+
+	- kreira se novi cvor u obliku dijamanta i tacnost modela se moze videti kada se on spoji
+	  sa cvorom za analizu (postoji opcija za matricu konfuzije/koincidencije): Output --> Analysis
